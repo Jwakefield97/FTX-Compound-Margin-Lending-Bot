@@ -1,0 +1,5 @@
+[DEFAULT]
+API_KEY=beepboopimananpikey
+API_SECRET=shhhhhhhhhimsecret
+CURRENCY=USD
+LENDING_PERIOD=60
