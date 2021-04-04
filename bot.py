@@ -74,10 +74,10 @@ if __name__ == '__main__':
     logging.basicConfig(filename='bot.log', level=logging.DEBUG)
     config = configparser.ConfigParser(allow_no_value=True)
     config.read('config.txt')
-    print(config)
 
-    API_KEY = ''
-    API_SECRET = ''
-    CURRENCY = 'USD'
-    LENDING_PERIOD = 60
-    #lending_loop()
+    API_KEY = config['DEFAULT']['API_KEY']
+    API_SECRET = config['DEFAULT']['API_SECRET']
+    CURRENCY = config.get('DEFAULT', 'CURRENCY', fallback=CURRENCY)
+    LENDING_PERIOD = config.get('DEFAULT', 'LENDING_PERIOD', fallback=LENDING_PERIOD)
+
+    lending_loop()
