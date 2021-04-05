@@ -53,7 +53,7 @@ def lending_loop():
         balances_res = make_ftx_get_request('/api/wallet/balances')
         rates_res = make_ftx_get_request('/api/spot_margin/lending_rates')
 
-        if rates_res['success'] == True: 
+        if balances_res['success'] == True and rates_res['success'] == True: 
             balance  = next(balance for balance in balances_res['result'] if balance['coin'] == CURRENCY)
             rate = next(rate for rate in rates_res['result'] if rate['coin'] == CURRENCY)
 
