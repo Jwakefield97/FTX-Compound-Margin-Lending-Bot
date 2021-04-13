@@ -29,7 +29,7 @@ def make_ftx_get_request(endpoint, params={}):
     
 def make_lend_request(amount, rate):
     ts = int(time.time() * 1000)
-    signature_payload = f'{ts}GET{endpoint}'.encode()
+    signature_payload = f'{ts}GET/spot_margin/offers'.encode()
     signature = hmac.new(API_SECRET.encode(), signature_payload, 'sha256').hexdigest()
 
     response = requests.post(
